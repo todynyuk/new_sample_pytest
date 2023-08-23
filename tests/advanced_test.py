@@ -64,7 +64,8 @@ def test_advanced(driver):
         attach_screenshot(driver)
 
     logger.info("Performing search with value: " + search_value)
-    search_field: WebElement = driver.find_element(by=By.XPATH, value="//input[@name='q']")
+    # search_field: WebElement = driver.find_element(by=By.XPATH, value="//input[@name='q']")
+    search_field: WebElement = driver.find_element(by=By.XPATH, value="//textarea[@id='APjFqb']")
     search_field.send_keys(search_value)
     search_field.send_keys(Keys.ENTER)
     attach_screenshot(driver)
