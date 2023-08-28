@@ -7,6 +7,7 @@ from pytest_zebrunner.zebrunner_logging import ZebrunnerHandler
 from selenium.webdriver.common.by import By
 from pages.main_page import set_search_input, click_search_button, verify_wrong_search_request
 from utils import utils
+from utils.utils import solv_multiple_cloudflare
 
 logger = logging.getLogger(__name__)
 logger.addHandler(ZebrunnerHandler())
@@ -26,11 +27,12 @@ search_correct_value = "Agm A9"
 @pytest.mark.maintainer("todynyuk")
 def test_correct_search(driver):
     driver.get(url=url)
-    time.sleep(3)
-    utils.pass_cloudflare(driver)
-    time.sleep(3)
-    utils.pass_cloudflare(driver)
-    time.sleep(3)
+    # time.sleep(3)
+    # utils.pass_cloudflare(driver)
+    # time.sleep(3)
+    # utils.pass_cloudflare(driver)
+    # time.sleep(3)
+    solv_multiple_cloudflare(driver)
     utils.attach_screenshot(driver)
     driver.find_element(by=By.XPATH, value="//input[contains(@class,'search-form__input')]").send_keys(
         search_correct_value)
@@ -51,11 +53,12 @@ def test_rozetka_correct_search(driver):
     attach_test_run_artifact_reference("Rozetka", "https://rozetka.com.ua/ua/")
     logger.info("Navigating to url: " + url)
     driver.get(url=url)
-    time.sleep(3)
-    utils.pass_cloudflare(driver)
-    time.sleep(3)
-    utils.pass_cloudflare(driver)
-    time.sleep(3)
+    # time.sleep(3)
+    # utils.pass_cloudflare(driver)
+    # time.sleep(3)
+    # utils.pass_cloudflare(driver)
+    # time.sleep(3)
+    solv_multiple_cloudflare(driver)
     utils.attach_screenshot(driver)
     logger.info("Performing search with value: " + search_correct_value)
     set_search_input(driver, search_correct_value)
@@ -76,9 +79,10 @@ def test_rozetka_incorrect_search(driver):
     attach_test_run_artifact_reference("Rozetka", "https://rozetka.com.ua/ua/")
     logger.info("Navigating to url: " + url)
     driver.get(url=url)
-    time.sleep(3)
-    utils.pass_cloudflare(driver)
-    time.sleep(3)
+    # time.sleep(3)
+    # utils.pass_cloudflare(driver)
+    # time.sleep(3)
+    solv_multiple_cloudflare(driver)
     utils.attach_screenshot(driver)
     logger.info("Performing search with value: " + "hgvhvg")
     set_search_input(driver, "hgvhvg")

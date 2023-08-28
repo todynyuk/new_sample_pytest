@@ -15,6 +15,7 @@ from pages.shopping_basket_page import isBasketEmptyStatusTextPresent, getGoodsI
 from pages.subcategory_page import click_universal_subcategory_menu_link
 from utils.attachments import attach_screenshot
 from utils import utils
+from utils.utils import solv_multiple_cloudflare
 
 logger = logging.getLogger(__name__)
 logger.addHandler(ZebrunnerHandler())
@@ -38,9 +39,10 @@ def testUsualPriceItemAndInBasket(driver):
     attach_test_run_artifact_reference("Rozetka", "https://rozetka.com.ua/ua/")
     logger.info("Navigating to url: " + url)
     driver.get(url=url)
-    time.sleep(3)
-    utils.pass_cloudflare(driver)
-    time.sleep(3)
+    # time.sleep(3)
+    # utils.pass_cloudflare(driver)
+    # time.sleep(3)
+    solv_multiple_cloudflare(driver)
     attach_screenshot(driver)
     click_universal_category_link(driver, "Смартфони")
     attach_screenshot(driver)
@@ -73,9 +75,10 @@ def testAddGoodsInBasketAndCheckItEmpty(driver):
     attach_test_run_artifact_reference("Rozetka", "https://rozetka.com.ua/ua/")
     logger.info("Navigating to url: " + url)
     driver.get(url=url)
-    time.sleep(3)
-    utils.pass_cloudflare(driver)
-    time.sleep(3)
+    # time.sleep(3)
+    # utils.pass_cloudflare(driver)
+    # time.sleep(3)
+    solv_multiple_cloudflare(driver)
     attach_screenshot(driver)
     click_universal_category_link(driver, "Смартфони")
     attach_screenshot(driver)
