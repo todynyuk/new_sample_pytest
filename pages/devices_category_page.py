@@ -4,7 +4,7 @@ import re
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
-
+from selenium.webdriver.common.action_chains import ActionChains
 from locators.elements_page_locators import DeviceCategoryLocators
 from pages.main_page import get_goods_title_text
 
@@ -24,8 +24,11 @@ def get_goods_title_text_by_index(driver, index):
 def clickBuyButtonByIndex(driver, index):
     driver.execute_script("window.scrollTo(0, 250)")
     time.sleep(2)
-    element = driver.find_element(By.XPATH, f"//button[contains(@class,'buy-button')][{index}]")
-    element.click()
+    # element = driver.find_element(By.XPATH, f"//button[contains(@class,'buy-button')][{index}]")
+    # element.click()
+    button = driver.find_element(By.XPATH, f"//button[contains(@class,'buy-button')][{index}]")
+    driver.implicitly_wait(3)
+    ActionChains(driver).move_to_element(button).click(button).perform()
 
 
 def get_goods_description_text_by_index(driver, index):
