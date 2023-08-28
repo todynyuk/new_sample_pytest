@@ -183,7 +183,7 @@ def test_choose_brands_and_check(driver):
     time.sleep(5)
 
     while True:
-        if isElementPresent(driver, "input[name='search']"):
+        if isElementPresent(driver, "//input[contains(@class,'search-form__input')]"):
             # if driver.find_element(By.CSS_SELECTOR, "input[name='search']").is_displayed():
             break
         else:
