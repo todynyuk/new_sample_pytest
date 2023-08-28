@@ -149,9 +149,10 @@ def testAddingAndCountGoodsInBasket(driver):
     driver.get(url=url)
     time.sleep(3)
     utils.pass_cloudflare(driver)
-    time.sleep(3)
-    frame = driver.find_element(by=By.XPATH, value="//iframe[@title='Widget containing a Cloudflare security challenge']").is_displayed()
-    if frame==True:
+    time.sleep(5)
+    # frame = driver.find_element(by=By.XPATH, value="//iframe[@title='Widget containing a Cloudflare security challenge']").is_displayed()
+    # if frame==True:
+    if driver.find_element(by=By.XPATH, value="//iframe[@title='Widget containing a Cloudflare security challenge']").is_displayed():
         utils.pass_cloudflare(driver)
         time.sleep(3)
     attach_screenshot(driver)
