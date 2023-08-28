@@ -5,6 +5,7 @@ import pytest
 from pytest_zebrunner import attach_test_run_label, attach_test_run_artifact_reference, attach_test_label
 from pytest_zebrunner.zebrunner_logging import ZebrunnerHandler
 from pytest_zebrunner import CurrentTestRun
+from selenium.webdriver.common.by import By
 
 from pages.device_page import verifyChosenParameterInShortCharacteristics, verifyChosenParamInCharacteristicsTitle
 from pages.devices_category_page import clear_and_set_sorting_price, click_ok_button, \
@@ -149,6 +150,10 @@ def testAddingAndCountGoodsInBasket(driver):
     time.sleep(3)
     utils.pass_cloudflare(driver)
     time.sleep(3)
+    frame = driver.find_element(by=By.XPATH, value="//iframe[@title='Widget containing a Cloudflare security challenge']").is_displayed()
+    if frame==True:
+        utils.pass_cloudflare(driver)
+        time.sleep(3)
     attach_screenshot(driver)
     click_universal_category_link(driver, "Смартфони")
     attach_screenshot(driver)
