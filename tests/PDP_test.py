@@ -35,6 +35,8 @@ def testItemRamAndPrice(driver):
     time.sleep(3)
     utils.pass_cloudflare(driver)
     time.sleep(3)
+    utils.pass_cloudflare(driver)
+    time.sleep(3)
     attach_screenshot(driver)
     click_universal_category_link(driver, "Смартфони")
     attach_screenshot(driver)
