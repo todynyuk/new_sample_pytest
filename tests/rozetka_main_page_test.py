@@ -29,6 +29,8 @@ def test_correct_search(driver):
     time.sleep(3)
     utils.pass_cloudflare(driver)
     time.sleep(3)
+    utils.pass_cloudflare(driver)
+    time.sleep(3)
     utils.attach_screenshot(driver)
     driver.find_element(by=By.XPATH, value="//input[contains(@class,'search-form__input')]").send_keys(
         search_correct_value)
@@ -49,6 +51,8 @@ def test_rozetka_correct_search(driver):
     attach_test_run_artifact_reference("Rozetka", "https://rozetka.com.ua/ua/")
     logger.info("Navigating to url: " + url)
     driver.get(url=url)
+    time.sleep(3)
+    utils.pass_cloudflare(driver)
     time.sleep(3)
     utils.pass_cloudflare(driver)
     time.sleep(3)
