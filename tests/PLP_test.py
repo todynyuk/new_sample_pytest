@@ -147,11 +147,9 @@ def testAddingAndCountGoodsInBasket(driver):
     attach_test_run_artifact_reference("Rozetka", "https://rozetka.com.ua/ua/")
     logger.info("Navigating to url: " + url)
     driver.get(url=url)
-    time.sleep(3)
-    utils.pass_cloudflare(driver)
-    time.sleep(5)
-    # frame = driver.find_element(by=By.XPATH, value="//iframe[@title='Widget containing a Cloudflare security challenge']").is_displayed()
-    # if frame==True:
+    # time.sleep(3)
+    # utils.pass_cloudflare(driver)
+    # time.sleep(5)
     while not driver.find_element(By.CSS_SELECTOR,"input[name='search']").is_displayed():
         if driver.find_element(by=By.XPATH, value="//iframe[@title='Widget containing a Cloudflare security challenge']").is_displayed():
             utils.pass_cloudflare(driver)
