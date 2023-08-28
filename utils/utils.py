@@ -31,6 +31,8 @@ def solv_multiple_cloudflare(driver):
     while True:
         if isElementPresent(driver, "//input[contains(@class,'search-form__input')]"):
             break
+        if isElementPresent(driver, "//iframe[@title='Widget containing a Cloudflare security challenge']")==False:
+            break
         else:
             pass_cloudflare(driver)
             time.sleep(3)
