@@ -152,9 +152,10 @@ def testAddingAndCountGoodsInBasket(driver):
     time.sleep(5)
     # frame = driver.find_element(by=By.XPATH, value="//iframe[@title='Widget containing a Cloudflare security challenge']").is_displayed()
     # if frame==True:
-    if driver.find_element(by=By.XPATH, value="//iframe[@title='Widget containing a Cloudflare security challenge']").is_displayed():
-        utils.pass_cloudflare(driver)
-        time.sleep(3)
+    while not driver.find_element(By.CSS_SELECTOR,"input[name='search']").is_displayed():
+        if driver.find_element(by=By.XPATH, value="//iframe[@title='Widget containing a Cloudflare security challenge']").is_displayed():
+            utils.pass_cloudflare(driver)
+            time.sleep(3)
     attach_screenshot(driver)
     click_universal_category_link(driver, "Смартфони")
     attach_screenshot(driver)
