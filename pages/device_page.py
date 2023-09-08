@@ -19,7 +19,7 @@ def get_device_short_characteristic(driver):
 
 def get_chosen_product_price(driver):
     time.sleep(3)
-    chosen_product_price = re.sub('\D', '', driver.find_element(By.XPATH, DevicePageLocators.PRODUCT_PRICE).text)
+    chosen_product_price = re.sub(r'\D', '', driver.find_element(By.XPATH, DevicePageLocators.PRODUCT_PRICE).text)
     return chosen_product_price
 
 

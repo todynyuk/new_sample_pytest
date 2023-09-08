@@ -14,7 +14,7 @@ def get_goods_description_text_by_index(driver, index):
 
 def getDevicePriceText(driver, index):
     xpath = f"//p[@data-testid='cost'][{index}]"
-    return int(re.sub('\D', '', driver.find_element(By.XPATH, xpath).text))
+    return int(re.sub(r'\D', '', driver.find_element(By.XPATH, xpath).text))
 
 
 def set_goods_count_value(driver, count):
@@ -27,7 +27,7 @@ def set_goods_count_value(driver, count):
 
 def getSumPriceText(driver):
     return int(
-        re.sub('\D', '', driver.find_element(By.XPATH, ShoppingBasketLocators.SUM_PRICE_TEXT).text))
+        re.sub(r'\D', '', driver.find_element(By.XPATH, ShoppingBasketLocators.SUM_PRICE_TEXT).text))
 
 
 def isBasketEmptyStatusTextPresent(driver):
