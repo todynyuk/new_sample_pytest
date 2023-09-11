@@ -25,7 +25,7 @@ def isElementPresent(driver, xpath):
     return True
 
 def solv_multiple_cloudflare(driver):
-    # time.sleep(3)
+    time.sleep(3)
     pass_cloudflare(driver)
     time.sleep(2)
     while True:
