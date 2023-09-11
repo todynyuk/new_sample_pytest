@@ -25,9 +25,9 @@ def isElementPresent(driver, xpath):
     return True
 
 def solv_multiple_cloudflare(driver):
-    time.sleep(3)
-    pass_cloudflare(driver)
-    time.sleep(2)
+    # time.sleep(3)
+    # pass_cloudflare(driver)
+    # time.sleep(2)
     while True:
         if isElementPresent(driver, "//input[contains(@class,'search-form__input')]"):
             break
