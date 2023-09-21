@@ -28,14 +28,18 @@ search_correct_value = "Agm A9"
 def test_correct_search(driver):
     driver.get(url=url)
     solv_multiple_cloudflare(driver)
+    logger.info("trying to solv cloudflare protection")
     utils.attach_screenshot(driver)
     driver.find_element(by=By.XPATH, value="//input[contains(@class,'search-form__input')]").send_keys(
         search_correct_value)
+    logger.info("set search value")
     utils.attach_screenshot(driver)
     driver.find_element(by=By.XPATH, value="//button[contains(@class,'button_color_green')]").click()
+    logger.info("click search button")
     time.sleep(2)
     utils.attach_screenshot(driver)
     title_text = driver.find_element(by=By.XPATH, value="(//span[@class='goods-tile__title'])[1]").text
+    logger.info("getting text from first item from list items")
     assert str(title_text).lower().__contains__(search_correct_value.lower()), "Search text not" \
                                                                                " contains in all " \
                                                                                "goods title texts"
