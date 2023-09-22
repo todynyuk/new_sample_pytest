@@ -1,11 +1,9 @@
 import logging
-import logging
 import time
 import pytest
 from pytest_zebrunner import attach_test_run_label, attach_test_run_artifact_reference, attach_test_label
 from pytest_zebrunner.zebrunner_logging import ZebrunnerHandler
 from pytest_zebrunner import CurrentTestRun
-from selenium.webdriver.common.by import By
 
 from pages.device_page import verifyChosenParameterInShortCharacteristics, verifyChosenParamInCharacteristicsTitle
 from pages.devices_category_page import clear_and_set_sorting_price, click_ok_button, \
@@ -17,7 +15,7 @@ from pages.main_page import click_universal_category_link
 from pages.subcategory_page import click_universal_subcategory_menu_link
 from utils.attachments import attach_screenshot
 from utils import utils
-from utils.utils import isElementPresent, solv_multiple_cloudflare
+from utils.utils import solv_multiple_cloudflare
 
 logger = logging.getLogger(__name__)
 logger.addHandler(ZebrunnerHandler())
@@ -41,7 +39,7 @@ def testFilterByBrandNameMaxCustomPriceAndAvailable(driver):
     logger.info("Navigating to url: " + url)
     driver.get(url=url)
     time.sleep(3)
-    utils.pass_cloudflare(driver)
+    solv_multiple_cloudflare(driver)
     logger.info("trying to solv cloudflare protection")
     time.sleep(3)
     attach_screenshot(driver)
@@ -81,7 +79,7 @@ def testVerifyItemRamMatrixTypeAndProcessor(driver):
     logger.info("Navigating to url: " + url)
     driver.get(url=url)
     time.sleep(3)
-    utils.pass_cloudflare(driver)
+    solv_multiple_cloudflare(driver)
     logger.info("trying to solv cloudflare protection")
     time.sleep(5)
     attach_screenshot(driver)
@@ -140,7 +138,7 @@ def testVerifySortByPrice(driver):
     logger.info("Navigating to url: " + url)
     driver.get(url=url)
     time.sleep(3)
-    utils.pass_cloudflare(driver)
+    solv_multiple_cloudflare(driver)
     logger.info("trying to solv cloudflare protection")
     time.sleep(3)
     attach_screenshot(driver)
@@ -170,6 +168,7 @@ def testAddingAndCountGoodsInBasket(driver):
     attach_test_run_artifact_reference("Rozetka", "https://rozetka.com.ua/ua/")
     logger.info("Navigating to url: " + url)
     driver.get(url=url)
+    utils.pass_cloudflare(driver)
     solv_multiple_cloudflare(driver)
     logger.info("trying to solv cloudflare protection")
     attach_screenshot(driver)

@@ -10,7 +10,6 @@ from pages.devices_category_page import choose_ram_сapacity, click_check_box_fi
 from pages.main_page import click_universal_category_link
 from pages.subcategory_page import click_universal_subcategory_menu_link
 from utils.attachments import attach_screenshot
-from utils import utils
 from utils.utils import solv_multiple_cloudflare
 
 logger = logging.getLogger(__name__)

@@ -2,8 +2,7 @@ import logging
 import time
 
 import pytest
-from pytest_zebrunner import attach_test_run_label, attach_test_run_artifact_reference, attach_test_label, \
-    attach_test_screenshot
+from pytest_zebrunner import attach_test_run_label, attach_test_run_artifact_reference, attach_test_label
 from pytest_zebrunner.zebrunner_logging import ZebrunnerHandler
 from pytest_zebrunner import CurrentTestRun
 
@@ -14,7 +13,6 @@ from pages.shopping_basket_page import isBasketEmptyStatusTextPresent, getGoodsI
     set_goods_count_value, getSumPriceText
 from pages.subcategory_page import click_universal_subcategory_menu_link
 from utils.attachments import attach_screenshot
-from utils import utils
 from utils.utils import solv_multiple_cloudflare
 
 logger = logging.getLogger(__name__)
